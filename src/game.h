@@ -10,6 +10,7 @@ public:
     void update();
     void toggleCell(int x, int y);
     void clear();
+    void randomize();
 
     bool getCell(int x, int y) const;
     int getWidth() const;

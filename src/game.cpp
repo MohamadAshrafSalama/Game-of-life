@@ -1,10 +1,13 @@
 #include "game.h"
+#include <cstdlib>
+#include <ctime>
 
 Game::Game(int width, int height)
     : width(width), height(height),
       grid(height, std::vector<bool>(width, false)),
       nextGrid(height, std::vector<bool>(width, false))
 {
+    srand(static_cast<unsigned>(time(NULL)));
 }
 
 int Game::countNeighbors(int x, int y) const {
@@ -46,6 +49,14 @@ void Game::clear() {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             grid[y][x] = false;
+        }
+    }
+}
+
+void Game::randomize() {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            grid[y][x] = (rand() % 4 == 0);
         }
     }
 }
