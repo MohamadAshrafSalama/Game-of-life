@@ -42,6 +42,15 @@ void keyboard(unsigned char key, int x, int y) {
         case ' ':
             paused = !paused;
             break;
+        case 'r':
+        case 'R':
+            game->randomize();
+            break;
+        case 'c':
+        case 'C':
+            game->clear();
+            paused = true;
+            break;
         case 27:
             exit(0);
             break;
