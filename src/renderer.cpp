@@ -31,6 +31,21 @@ void Renderer::drawGrid() {
             drawCell(x, y, game->getCell(x, y));
         }
     }
+
+    // grid lines
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_LINES);
+    for (int x = 0; x <= game->getWidth(); x++) {
+        float px = x * cellWidth;
+        glVertex2f(px, 0);
+        glVertex2f(px, windowHeight);
+    }
+    for (int y = 0; y <= game->getHeight(); y++) {
+        float py = y * cellHeight;
+        glVertex2f(0, py);
+        glVertex2f(windowWidth, py);
+    }
+    glEnd();
 }
 
 void Renderer::drawCell(int x, int y, bool alive) {
