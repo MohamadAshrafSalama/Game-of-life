@@ -23,6 +23,8 @@ private:
     std::vector<std::vector<bool>> nextGrid;
 
     int countNeighbors(int x, int y) const;
+    int wrapX(int x) const;
+    int wrapY(int y) const;
 };
 
 #endif

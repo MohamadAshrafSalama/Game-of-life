@@ -10,15 +10,21 @@ Game::Game(int width, int height)
     srand(static_cast<unsigned>(time(NULL)));
 }
 
+int Game::wrapX(int x) const {
+    return ((x % width) + width) % width;
+}
+
+int Game::wrapY(int y) const {
+    return ((y % height) + height) % height;
+}
+
 int Game::countNeighbors(int x, int y) const {
     int count = 0;
     for (int dy = -1; dy <= 1; dy++) {
         for (int dx = -1; dx <= 1; dx++) {
             if (dx == 0 && dy == 0) continue;
-            int nx = x + dx;
-            int ny = y + dy;
-            if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-                if (grid[ny][nx]) count++;
+            if (grid[wrapY(y + dy)][wrapX(x + dx)]) {
+                count++;
             }
         }
     }
