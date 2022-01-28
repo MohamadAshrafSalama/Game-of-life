@@ -54,7 +54,7 @@ void Renderer::drawCell(int x, int y, bool alive) {
     float px = x * cellWidth;
     float py = y * cellHeight;
 
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(0.2f, 0.8f, 0.3f);
     glBegin(GL_QUADS);
     glVertex2f(px, py);
     glVertex2f(px + cellWidth, py);
