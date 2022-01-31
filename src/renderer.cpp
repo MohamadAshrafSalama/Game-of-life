@@ -12,7 +12,7 @@ void Renderer::updateCellSize() {
 }
 
 void Renderer::init() {
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, windowWidth, 0, windowHeight);
