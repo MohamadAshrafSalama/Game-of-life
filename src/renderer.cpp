@@ -56,10 +56,10 @@ void Renderer::drawCell(int x, int y, bool alive) {
 
     glColor3f(0.2f, 0.8f, 0.3f);
     glBegin(GL_QUADS);
-    glVertex2f(px, py);
-    glVertex2f(px + cellWidth, py);
-    glVertex2f(px + cellWidth, py + cellHeight);
-    glVertex2f(px, py + cellHeight);
+    glVertex2f(px + 1, py + 1);
+    glVertex2f(px + cellWidth - 1, py + 1);
+    glVertex2f(px + cellWidth - 1, py + cellHeight - 1);
+    glVertex2f(px + 1, py + cellHeight - 1);
     glEnd();
 }
 
