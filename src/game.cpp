@@ -3,7 +3,7 @@
 #include <ctime>
 
 Game::Game(int width, int height)
-    : width(width), height(height),
+    : width(width), height(height), generation(0),
       grid(height, std::vector<bool>(width, false)),
       nextGrid(height, std::vector<bool>(width, false))
 {
@@ -43,6 +43,7 @@ void Game::update() {
         }
     }
     grid.swap(nextGrid);
+    generation++;
 }
 
 void Game::toggleCell(int x, int y) {
@@ -57,6 +58,7 @@ void Game::clear() {
             grid[y][x] = false;
         }
     }
+    generation = 0;
 }
 
 void Game::randomize() {
@@ -76,3 +78,5 @@ bool Game::getCell(int x, int y) const {
 
 int Game::getWidth() const { return width; }
 int Game::getHeight() const { return height; }
+
+int Game::getGeneration() const { return generation; }

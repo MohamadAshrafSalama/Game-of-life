@@ -15,10 +15,12 @@ public:
     bool getCell(int x, int y) const;
     int getWidth() const;
     int getHeight() const;
+    int getGeneration() const;
 
 private:
     int width;
     int height;
+    int generation;
     std::vector<std::vector<bool>> grid;
     std::vector<std::vector<bool>> nextGrid;
 
