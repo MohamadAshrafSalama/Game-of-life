@@ -1,4 +1,6 @@
 #include "renderer.h"
+#include <cstdio>
+#include <cstring>
 
 Renderer::Renderer(int windowWidth, int windowHeight, Game* game)
     : windowWidth(windowWidth), windowHeight(windowHeight), game(game)
@@ -22,6 +24,7 @@ void Renderer::init() {
 void Renderer::display() {
     glClear(GL_COLOR_BUFFER_BIT);
     drawGrid();
+    drawHUD();
     glutSwapBuffers();
 }
 
@@ -32,7 +35,6 @@ void Renderer::drawGrid() {
         }
     }
 
-    // grid lines
     glColor3f(0.2f, 0.2f, 0.2f);
     glBegin(GL_LINES);
     for (int x = 0; x <= game->getWidth(); x++) {
@@ -61,6 +63,20 @@ void Renderer::drawCell(int x, int y, bool alive) {
     glVertex2f(px + cellWidth - 1, py + cellHeight - 1);
     glVertex2f(px + 1, py + cellHeight - 1);
     glEnd();
+}
+
+void Renderer::drawHUD() {
+    char buf[64];
+    sprintf(buf, "Generation: %d", game->getGeneration());
+    drawText(buf, 10, windowHeight - 20);
+}
+
+void Renderer::drawText(const char* text, float x, float y) {
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glRasterPos2f(x, y);
+    for (size_t i = 0; i < strlen(text); i++) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, text[i]);
+    }
 }
 
 void Renderer::screenToGrid(int screenX, int screenY, int* gridX, int* gridY) {

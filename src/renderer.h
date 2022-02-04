@@ -17,6 +17,8 @@ public:
     void display();
     void drawGrid();
     void drawCell(int x, int y, bool alive);
+    void drawHUD();
+    void drawText(const char* text, float x, float y);
 
     void screenToGrid(int screenX, int screenY, int* gridX, int* gridY);
 
