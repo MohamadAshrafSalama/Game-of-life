@@ -67,7 +67,7 @@ void Renderer::drawCell(int x, int y, bool alive) {
 
 void Renderer::drawHUD() {
     char buf[64];
-    sprintf(buf, "Generation: %d", game->getGeneration());
+    sprintf(buf, "Gen: %d  Pop: %d", game->getGeneration(), game->getPopulation());
     drawText(buf, 10, windowHeight - 20);
 }
 

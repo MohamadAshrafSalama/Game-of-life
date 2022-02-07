@@ -16,6 +16,7 @@ public:
     int getWidth() const;
     int getHeight() const;
     int getGeneration() const;
+    int getPopulation() const;
 
 private:
     int width;

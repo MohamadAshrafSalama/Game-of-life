@@ -80,3 +80,13 @@ int Game::getWidth() const { return width; }
 int Game::getHeight() const { return height; }
 
 int Game::getGeneration() const { return generation; }
+
+int Game::getPopulation() const {
+    int count = 0;
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            if (grid[y][x]) count++;
+        }
+    }
+    return count;
+}
