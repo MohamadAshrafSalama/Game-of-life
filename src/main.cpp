@@ -15,6 +15,7 @@ static const int GRID_HEIGHT = 50;
 static Game* game = NULL;
 static Renderer* renderer = NULL;
 static bool paused = true;
+static int simSpeed = 100;
 
 void display() {
     renderer->display();
@@ -25,7 +26,7 @@ void timer(int value) {
         game->update();
     }
     glutPostRedisplay();
-    glutTimerFunc(100, timer, 0);
+    glutTimerFunc(simSpeed, timer, 0);
 }
 
 void mouseClick(int button, int state, int x, int y) {
@@ -51,6 +52,14 @@ void keyboard(unsigned char key, int x, int y) {
             game->clear();
             paused = true;
             break;
+        case '+':
+        case '=':
+            if (simSpeed > 20) simSpeed -= 20;
+            break;
+        case '-':
+        case '_':
+            if (simSpeed < 500) simSpeed += 20;
+            break;
         case 27:
             exit(0);
             break;
@@ -73,7 +82,7 @@ int main(int argc, char** argv) {
     glutDisplayFunc(display);
     glutMouseFunc(mouseClick);
     glutKeyboardFunc(keyboard);
-    glutTimerFunc(100, timer, 0);
+    glutTimerFunc(simSpeed, timer, 0);
 
     glutMainLoop();
 
