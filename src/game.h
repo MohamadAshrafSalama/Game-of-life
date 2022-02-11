@@ -11,10 +11,12 @@ public:
     void toggleCell(int x, int y);
     void clear();
     void randomize();
+    void randomize(float density);
 
     bool getCell(int x, int y) const;
     int getWidth() const;
     int getHeight() const;
+
     int getGeneration() const;
     int getPopulation() const;
 

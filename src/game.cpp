@@ -62,11 +62,17 @@ void Game::clear() {
 }
 
 void Game::randomize() {
+    randomize(0.3f);
+}
+
+void Game::randomize(float density) {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            grid[y][x] = (rand() % 4 == 0);
+            float r = static_cast<float>(rand()) / RAND_MAX;
+            grid[y][x] = (r < density);
         }
     }
+    generation = 0;
 }
 
 bool Game::getCell(int x, int y) const {
@@ -78,7 +84,6 @@ bool Game::getCell(int x, int y) const {
 
 int Game::getWidth() const { return width; }
 int Game::getHeight() const { return height; }
-
 int Game::getGeneration() const { return generation; }
 
 int Game::getPopulation() const {
