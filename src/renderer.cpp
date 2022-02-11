@@ -69,6 +69,8 @@ void Renderer::drawHUD() {
     char buf[64];
     sprintf(buf, "Gen: %d  Pop: %d", game->getGeneration(), game->getPopulation());
     drawText(buf, 10, windowHeight - 20);
+
+    drawText("[Space] Pause  [R] Random  [C] Clear  [+/-] Speed", 10, 10);
 }
 
 void Renderer::drawText(const char* text, float x, float y) {
