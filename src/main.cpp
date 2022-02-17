@@ -60,6 +60,10 @@ void keyboard(unsigned char key, int x, int y) {
         case '_':
             if (simSpeed < 500) simSpeed += 20;
             break;
+        case 'n':
+        case 'N':
+            game->update();
+            break;
         case 27:
             exit(0);
             break;
