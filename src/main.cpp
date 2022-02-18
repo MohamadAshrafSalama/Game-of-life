@@ -64,9 +64,7 @@ void keyboard(unsigned char key, int x, int y) {
         case 'N':
             game->update();
             break;
-        case 27:
-            exit(0);
-            break;
+        case 27: // ESCn            delete game;n            delete renderer;n            exit(0);n            break;
     }
     glutPostRedisplay();
 }
