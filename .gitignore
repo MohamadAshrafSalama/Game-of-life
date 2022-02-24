@@ -1,3 +1,5 @@
+build/
 *.o
 *.exe
+game_of_life
 .DS_Store
